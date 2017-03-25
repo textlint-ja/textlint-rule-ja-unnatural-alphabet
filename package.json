@@ -1,0 +1,40 @@
+{
+  "directories": {
+    "test": "test"
+  },
+  "author": "azu",
+  "license": "MIT",
+  "files": [
+    "bin/",
+    "lib/",
+    "src/"
+  ],
+  "name": "textlint-rule-ja-unnatural-alphabet",
+  "version": "1.0.0",
+  "description": "不自然なアルファベットを検知するtextlintルール",
+  "main": "lib/textlint-rule-ja-unnatural-alphabet.js",
+  "scripts": {
+    "test": "textlint-scripts test",
+    "prepublish": "npm run --if-present build",
+    "build": "textlint-scripts build",
+    "watch": "textlint-scripts build --watch"
+  },
+  "keywords": [
+    "textlintrule"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/textlint-ja/textlint-rule-ja-unnatural-alphabet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/textlint-ja/textlint-rule-ja-unnatural-alphabet/issues"
+  },
+  "homepage": "https://github.com/textlint-ja/textlint-rule-ja-unnatural-alphabet",
+  "devDependencies": {
+    "textlint-scripts": "^1.2.2"
+  },
+  "dependencies": {
+    "match-index": "^1.0.1",
+    "regx": "^1.0.4"
+  }
+}
