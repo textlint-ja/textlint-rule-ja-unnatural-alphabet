@@ -2,6 +2,8 @@
 
 不自然なアルファベットを検知する[textlint](https://github.com/textlint/textlint "textlint")ルール。
 
+IMEの入力ミスによるtypoを見つけるルールです。
+
 ## Example
 
 **OK**:
