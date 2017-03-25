@@ -1,6 +1,6 @@
-# textlint-rule-ja-unnatural-alphabet
+# textlint-rule-ja-unnatural-alphabet [![Build Status](https://travis-ci.org/azu/textlint-rule-ja-unnatural-alphabet.svg?branch=master)](https://travis-ci.org/azu/textlint-rule-ja-unnatural-alphabet)
 
-不自然なアルファベットを検知するtextlintルール
+不自然なアルファベットを検知するtextlintルール。
 
 ## Example
 
