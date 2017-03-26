@@ -12,6 +12,9 @@ tester.run("textlint-rule-ja-unnatural-alphabet", rule, {
         "This is pen.",
         "これはC言語",
         "これはD言語",
+        "これはX座標",
+        "これはX軸",
+        "これはEメール",
         {
             text: "アンドロイドNは良し",
             options: {

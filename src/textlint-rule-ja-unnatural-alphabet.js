@@ -62,7 +62,14 @@ const defaultOptions = {
     // 無視するアルファベット
     // 例) ["X"]
     // デフォルトでは母音とnと典型例を除外している
-    "allow": ["a", "i", "u", "e", "o", "n", "/[a-zA-Zａ-ｚＡ-Ｚ]言語/"]
+    "allow": [
+        "a", "i", "u", "e", "o",
+        "n",
+        "/[a-zA-Zａ-ｚＡ-Ｚ]言語/",
+        "/[x-zX-Z]座標/",
+        "/[x-zX-Z]軸/",
+        "Eメール"
+    ]
 };
 const report = (context, options = {}) => {
     const { Syntax, RuleError, report, getSource } = context;
