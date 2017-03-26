@@ -34,6 +34,7 @@
     "textlint-scripts": "^1.2.2"
   },
   "dependencies": {
+    "escape-string-regexp": "^1.0.5",
     "match-index": "^1.0.1",
     "regx": "^1.0.4"
   }

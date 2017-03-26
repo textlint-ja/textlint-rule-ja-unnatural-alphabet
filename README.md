@@ -49,8 +49,9 @@ textlint --rule ja-unnatural-alphabet README.md
 
 - `allow`: `string[]`
     - 無視するアルファベットの配列
-    - デフォルト: `["a", "i", "u", "e", "o", "n"]`
+    - デフォルト: `["a", "i", "u", "e", "o", "n", "/[a-zA-Zａ-ｚＡ-Ｚ]言語/"]`
     - デフォルトでは母音とnを除外している
+    - `"/正規表現/" のような文字列もサポート
 
 ```json5
 {

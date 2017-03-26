@@ -10,6 +10,8 @@ tester.run("textlint-rule-ja-unnatural-alphabet", rule, {
         "リリース",
         "aiueo",
         "This is pen.",
+        "これはC言語",
+        "これはD言語",
         {
             text: "アンドロイドNは良し",
             options: {
@@ -31,6 +33,14 @@ tester.run("textlint-rule-ja-unnatural-alphabet", rule, {
             errors: [
                 {
                     message: "不自然なアルファベットがあります: ｋ"
+                }
+            ]
+        },
+        {
+            text: "無駄なk脳",
+            errors: [
+                {
+                    message: "不自然なアルファベットがあります: k"
                 }
             ]
         }
