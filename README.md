@@ -56,7 +56,14 @@ textlint --rule ja-unnatural-alphabet README.md
 ```json5
 {
     // 無視するアルファベット
-    "allow": ["X"]
+    // 例) ["X"]
+    // デフォルトでは母音とnを除外
+    "allow": [
+        "a", "i", "u", "e", "o", "n"
+    ],
+    // ビルトインの典型例を除外するかどうか
+    // 例) C言語
+    "allowCommonCase": true
 }
 ```
 

@@ -58,26 +58,38 @@ const createIgnoreRanges = (input, allowAlphabets) => {
     }, []);
 };
 
+/**
+ * ビルトインの無視するリスト
+ * @type {[*]}
+ */
+const builtInCommonAllow = [
+    "/[a-zA-Zａ-ｚＡ-Ｚ]言語/",
+    "/[x-zX-Z]座標/",
+    "/[x-zX-Z]軸/",
+    "Eメール"
+];
 const defaultOptions = {
     // 無視するアルファベット
     // 例) ["X"]
-    // デフォルトでは母音とnと典型例を除外している
+    // デフォルトでは母音とnを除外
     "allow": [
-        "a", "i", "u", "e", "o",
-        "n",
-        "/[a-zA-Zａ-ｚＡ-Ｚ]言語/",
-        "/[x-zX-Z]座標/",
-        "/[x-zX-Z]軸/",
-        "Eメール"
-    ]
+        "a", "i", "u", "e", "o", "n"
+    ],
+    // ビルトインの典型例を除外するかどうか
+    // 例) C言語
+    "allowCommonCase": true
 };
 const report = (context, options = {}) => {
     const { Syntax, RuleError, report, getSource } = context;
     const allowAlphabets = options.allow || defaultOptions.allow;
+    const allowCommonCase = options.allowCommonCase !== undefined
+        ? options.allowCommonCase
+        : defaultOptions.allowCommonCase;
+    const allow = allowCommonCase ? allowAlphabets.concat(builtInCommonAllow) : allowAlphabets;
     return {
         [Syntax.Str](node){
             const text = getSource(node);
-            const ignoreMatch = createIgnoreRanges(text, allowAlphabets);
+            const ignoreMatch = createIgnoreRanges(text, allow);
             matchUnnaturalAlphabet(text).forEach((actual) => {
                 const { text, index } = actual;
                 // 無視する単語を含んでいるなら無視
