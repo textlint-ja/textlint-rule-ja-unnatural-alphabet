@@ -76,7 +76,7 @@ textlint --rule ja-unnatural-alphabet README.md
 
 - [textlint/regexp-string-matcher: Regexp-like string matcher.](https://github.com/textlint/regexp-string-matcher#regexp-like-string)
 
-たとえば、`アンドロイドNを購入する`という文章は`{日本語}{アルファベット}{日本語}`のルールに該当するためエラーとなりますが、`allow`オプションでは問題として無視できます。
+たとえば、`アンドロイドNを購入する`という文章は`{日本語}{アルファベット}{日本語}`のルールに該当するためエラーとなりますが、`allow`オプションではエラーを無視するように設定できます。
 
 ```json5
 {
