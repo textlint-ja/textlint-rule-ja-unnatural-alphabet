@@ -4,6 +4,8 @@
 
 IMEの入力ミスによるtypoを見つけるルールです。
 
+`{日本語}{アルファベット}{日本語}`のように不自然な形でアルファベットが登場した場合をチェックしていないかをチェックしています。
+
 ## Example
 
 **OK**:
@@ -51,7 +53,7 @@ textlint --rule ja-unnatural-alphabet README.md
     - 無視するアルファベットや単語の配列
     - デフォルト: `["a", "i", "u", "e", "o", "n", 典型例 ]`
     - デフォルトでは母音とnを除外している
-    - `"/正規表現/"` のような文字列もサポート
+    - `"/正規表現/"` のような[RegExp-like String](https://github.com/textlint/regexp-string-matcher#regexp-like-string)もサポートしています
 
 ```json5
 {
@@ -64,6 +66,36 @@ textlint --rule ja-unnatural-alphabet README.md
     // ビルトインの典型例を除外するかどうか
     // 例) C言語
     "allowCommonCase": true
+}
+```
+
+### `allow`: `string[]`
+
+`allow`オプションには、エラーとしたくない文字列または[RegExp-like String](https://github.com/textlint/regexp-string-matcher#regexp-like-string)を指定できます。
+[RegExp-like String](https://github.com/textlint/regexp-string-matcher#regexp-like-string)についての詳細は次を参照してください。
+
+- [textlint/regexp-string-matcher: Regexp-like string matcher.](https://github.com/textlint/regexp-string-matcher#regexp-like-string)
+
+たとえば、`アンドロイドNを購入する`という文章は`{日本語}{アルファベット}{日本語}`のルールに該当するためエラーとなりますが、`allow`オプションでは問題として無視できます。
+
+```json5
+{
+    // 無視する設定を追加
+    "allow": [
+        "アンドロイドN"
+    ]
+}
+```
+
+同様に[RegExp-like String](https://github.com/textlint/regexp-string-matcher#regexp-like-string)を使うことで、`allow`オプションに正規表現での指定が可能です。
+次の設定は`アンドロイド{アルファベット}`は問題ないとしてエラーにしません。
+
+```json5
+{
+    "allow": [
+        // RegExp-like String は `/` と `/` で囲む
+        "/アンドロイド[a-zA-Z]/"
+    ]
 }
 ```
 

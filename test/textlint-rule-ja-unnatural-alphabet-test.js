@@ -20,6 +20,16 @@ tester.run("textlint-rule-ja-unnatural-alphabet", rule, {
             options: {
                 allow: ["N"]
             }
+        }, {
+            text: "アンドロイドNは良し",
+            options: {
+                allow: ["アンドロイドN"]
+            }
+        }, {
+            text: "アンドロイドNは良し",
+            options: {
+                allow: ["/アンドロイド[a-zA-Z]/"]
+            }
         }
     ],
     invalid: [

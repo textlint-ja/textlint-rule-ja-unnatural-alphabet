@@ -1,6 +1,6 @@
 // MIT © 2017 azu
 "use strict";
-const escapeStringRegexp = require('escape-string-regexp');
+const { matchPatterns } = require("@textlint/regexp-string-matcher");
 const matchCaptureGroupAll = require("match-index").matchCaptureGroupAll;
 const regx = require("regx").default;
 // IME的に入力されそうな文字列
@@ -23,39 +23,15 @@ const matchUnnaturalAlphabet = (text) => {
 };
 
 /**
- * if actual is in the `exceptGroups`, return true
- * @param {MatchCaptureGroup[]} exceptGroups
+ * if actual is in the `matchPatternResults`, return true
+ * @param {matchPatternResult[]} matchPatternResults
  * @param {MatchCaptureGroup} actual
  * @returns {boolean}
  */
-const isIgnoredRange = (exceptGroups, actual) => {
-    return exceptGroups.some(({ text, index }) => {
-        const endIndex = index + text.length;
-        return index <= actual.index && actual.index <= endIndex;
+const isIgnoredRange = (matchPatternResults, actual) => {
+    return matchPatternResults.some(result => {
+        return result.startIndex <= actual.index && actual.index <= result.endIndex;
     });
-};
-/***
- *
- * @param {string} input
- * @param {string[]} allowAlphabets
- * @returns {MatchCaptureGroup[]}
- */
-const createIgnoreRanges = (input, allowAlphabets) => {
-    // str -> RegExp
-    const patterns = allowAlphabets.map(allowWord => {
-        if (!allowWord) {
-            return /^$/;
-        }
-        if (allowWord[0] === "/" && allowWord[allowWord.length - 1] === "/") {
-            const regExpString = allowWord.slice(1, allowWord.length - 1);
-            return new RegExp(`(${regExpString})`, "g");
-        }
-        const escapeString = escapeStringRegexp(allowWord);
-        return new RegExp(`(${escapeString})`, "g");
-    });
-    return patterns.reduce((total, pattern) => {
-        return total.concat(matchCaptureGroupAll(input, pattern));
-    }, []);
 };
 
 /**
@@ -89,7 +65,7 @@ const report = (context, options = {}) => {
     return {
         [Syntax.Str](node){
             const text = getSource(node);
-            const ignoreMatch = createIgnoreRanges(text, allow);
+            const ignoreMatch = matchPatterns(text, allow);
             matchUnnaturalAlphabet(text).forEach((actual) => {
                 const { text, index } = actual;
                 // 無視する単語を含んでいるなら無視
