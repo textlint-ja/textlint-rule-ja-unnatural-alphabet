@@ -72,7 +72,7 @@ textlint --rule ja-unnatural-alphabet README.md
 ### `allow`: `string[]`
 
 `allow`オプションには、エラーとしたくない文字列または[RegExp-like String](https://github.com/textlint/regexp-string-matcher#regexp-like-string)を指定できます。
-[RegExp-like String](https://github.com/textlint/regexp-string-matcher#regexp-like-string)についての詳細は次を参照してください。
+[RegExp-like String](https://github.com/textlint/regexp-string-matcher#regexp-like-string)は`/`と`/`で囲んだ正規表現ライクな文字列です。詳細は次を参照してください。
 
 - [textlint/regexp-string-matcher: Regexp-like string matcher.](https://github.com/textlint/regexp-string-matcher#regexp-like-string)
 
