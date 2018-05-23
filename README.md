@@ -87,7 +87,10 @@ textlint --rule ja-unnatural-alphabet README.md
 }
 ```
 
-同様に[RegExp-like String](https://github.com/textlint/regexp-string-matcher#regexp-like-string)を使うことで、`allow`オプションに正規表現での指定が可能です。
+同様に[RegExp-like String](https://github.com/textlint/regexp-string-matcher#regexp-like-string)を使うことで、`allow`オプションに正規表現のような指定が可能です。
+
+:warning: [RegExp-like String](https://github.com/textlint/regexp-string-matcher#regexp-like-string)は文字列で正規表現リテラルを書くため、`\d`のような特殊文字は`"\\d"`とエスケープする必要があります。
+
 次の設定は`アンドロイド{アルファベット}`は問題ないとしてエラーにしません。
 
 ```json5
