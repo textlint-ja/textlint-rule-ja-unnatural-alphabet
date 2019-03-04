@@ -10,6 +10,8 @@ tester.run("textlint-rule-ja-unnatural-alphabet", rule, {
         "リリース",
         "aiueo",
         "This is pen.",
+        // 単独の大文字アルファベットは許容
+        "リソースA、リソースB、リソースC、リソースD",
         "これはC言語",
         "これはD言語",
         "これはX座標",
