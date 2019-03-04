@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/textlint-ja/textlint-rule-ja-unnatural-alphabet",
   "devDependencies": {
-    "textlint-scripts": "^1.2.2"
+    "textlint-scripts": "^2.1.0"
   },
   "dependencies": {
     "@textlint/regexp-string-matcher": "^1.0.2",
