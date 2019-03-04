@@ -58,10 +58,12 @@ textlint --rule ja-unnatural-alphabet README.md
 ```json5
 {
     // 無視するアルファベット
-    // 例) ["X"]
-    // デフォルトでは母音とnを除外
+    // 例) ["r"]
+    // デフォルトでは母音とn、大文字のアルファベットを除外
+    // 単独の大文字のアルファベットは入力ミスでは発生しにくため
     "allow": [
-        "a", "i", "u", "e", "o", "n"
+        "a", "i", "u", "e", "o", "n",
+        "/[A-Z]/"
     ],
     // ビルトインの典型例を除外するかどうか
     // 例) C言語
@@ -76,13 +78,13 @@ textlint --rule ja-unnatural-alphabet README.md
 
 - [textlint/regexp-string-matcher: Regexp-like string matcher.](https://github.com/textlint/regexp-string-matcher#regexp-like-string)
 
-たとえば、`アンドロイドNを購入する`という文章は`{日本語}{アルファベット}{日本語}`のルールに該当するためエラーとなりますが、`allow`オプションではエラーを無視するように設定できます。
+たとえば、`アンドロイドnを購入する`という文章は`{日本語}{アルファベット}{日本語}`のルールに該当するためエラーとなりますが、`allow`オプションではエラーを無視するように設定できます。
 
 ```json5
 {
     // 無視する設定を追加
     "allow": [
-        "アンドロイドN"
+        "アンドロイドn"
     ]
 }
 ```
