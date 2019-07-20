@@ -51,8 +51,8 @@ textlint --rule ja-unnatural-alphabet README.md
 
 - `allow`: `string[]`
     - 無視するアルファベットや単語の配列
-    - デフォルト: `["a", "i", "u", "e", "o", "n", 典型例 ]`
-    - デフォルトでは母音とnを除外している
+    - デフォルト: `["a", "i", "u", "e", "o", "n", "/[A-Z]/"]`
+    - デフォルトでは母音とn、大文字のAからZを例外として取り除いている
     - `"/正規表現/"` のような[RegExp-like String](https://github.com/textlint/regexp-string-matcher#regexp-like-string)もサポートしています
 
 ```json5
