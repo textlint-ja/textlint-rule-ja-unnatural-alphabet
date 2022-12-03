@@ -31,11 +31,12 @@
   },
   "homepage": "https://github.com/textlint-ja/textlint-rule-ja-unnatural-alphabet",
   "devDependencies": {
-    "textlint-scripts": "^2.1.0"
+    "textlint-scripts": "^12.2.3",
+    "textlint-tester": "^12.2.3"
   },
   "dependencies": {
-    "@textlint/regexp-string-matcher": "^1.0.2",
-    "match-index": "^1.0.1",
+    "@textlint/regexp-string-matcher": "^2.0.2",
+    "match-index": "^1.0.3",
     "regx": "^1.0.4"
   }
 }

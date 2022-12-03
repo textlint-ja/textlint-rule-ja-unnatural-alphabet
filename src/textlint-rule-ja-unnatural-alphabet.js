@@ -1,8 +1,8 @@
 // MIT © 2017 azu
 "use strict";
-const { matchPatterns } = require("@textlint/regexp-string-matcher");
-const matchCaptureGroupAll = require("match-index").matchCaptureGroupAll;
-const regx = require("regx").default;
+import { matchPatterns } from "@textlint/regexp-string-matcher";
+import { matchCaptureGroupAll } from "match-index";
+import regx from "regx";
 // IME的に入力されそうな文字列
 // 日本語 + 記号
 const japaneseRegExp = /(?:[々〇〻\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]|[\uD840-\uD87F]|[\uFF00-\uFFEF]|[\uDC00-\uDFFF]|[ぁ-んァ-ヶー。、・−])/;

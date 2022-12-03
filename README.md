@@ -1,4 +1,4 @@
-# textlint-rule-ja-unnatural-alphabet [![Build Status](https://travis-ci.org/textlint-ja/textlint-rule-ja-unnatural-alphabet.svg?branch=master)](https://travis-ci.org/textlint-ja/textlint-rule-ja-unnatural-alphabet)
+# textlint-rule-ja-unnatural-alphabet [![Actions Status: test](https://github.com/textlint-ja/textlint-rule-ja-unnatural-alphabet/workflows/test/badge.svg)](https://github.com/textlint-ja/textlint-rule-ja-unnatural-alphabet/actions?query=workflow%3A"test")
 
 不自然なアルファベットを検知する[textlint](https://github.com/textlint/textlint "textlint")ルール。
 
