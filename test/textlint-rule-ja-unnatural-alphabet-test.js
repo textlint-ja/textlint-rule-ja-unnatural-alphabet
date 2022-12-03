@@ -1,9 +1,6 @@
-// MIT © 2017 azu
-"use strict";
-const TextLintTester = require("textlint-tester");
+import TextLintTester  from "textlint-tester";
+import rule from "../src/textlint-rule-ja-unnatural-alphabet";
 const tester = new TextLintTester();
-// rule
-const rule = require("../src/textlint-rule-ja-unnatural-alphabet");
 // ruleName, rule, { valid, invalid }
 tester.run("textlint-rule-ja-unnatural-alphabet", rule, {
     valid: [
